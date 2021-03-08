@@ -8,6 +8,7 @@ if (location.pathname.match("tweets/new")){
       // keywordは5行目でフォームから取得した文字列
       XHR.open("GET", `search/?keyword=${keyword}`, true);
       XHR.responseType = "json";
+      XHR.send();
     });
   });
 };
