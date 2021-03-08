@@ -17,6 +17,14 @@ class TweetsController < ApplicationController
     end
   end
 
+  # インクリメンタルサーチ実装の準備
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"] )
+    render json:{ keyword: tag }
+  end
+
+
   private
 
   def tweet_params
