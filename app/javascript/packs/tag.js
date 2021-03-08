@@ -9,6 +9,9 @@ if (location.pathname.match("tweets/new")){
       XHR.open("GET", `search/?keyword=${keyword}`, true);
       XHR.responseType = "json";
       XHR.send();
+      XHR.onload = () => {
+        console.log("非同期通信成功");
+      };
     });
   });
 };
